@@ -4,14 +4,21 @@ const path = require('path');
 // Load environment variables
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
-const pool = new Pool({
-  user: process.env.DB_USER || 'postgres',
-  host: process.env.DB_HOST || '127.0.0.1',
-  database: process.env.DB_DATABASE || 'legal_cases_db',
-  password: process.env.DB_PASSWORD || 'postgres',
-  port: parseInt(process.env.DB_PORT || '5432', 10),
-  connectionTimeoutMillis: 2000, // 2-second timeout to fail-fast if Postgres isn't running
-});
+const connectionString = process.env.DATABASE_URL;
+
+const pool = connectionString 
+  ? new Pool({
+      connectionString,
+      connectionTimeoutMillis: 2000,
+    })
+  : new Pool({
+      user: process.env.DB_USER || 'postgres',
+      host: process.env.DB_HOST || '127.0.0.1',
+      database: process.env.DB_DATABASE || 'legal_cases_db',
+      password: process.env.DB_PASSWORD || 'postgres',
+      port: parseInt(process.env.DB_PORT || '5432', 10),
+      connectionTimeoutMillis: 2000,
+    });
 
 let isMock = false;
 
