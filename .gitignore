@@ -1,0 +1,37 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production build outputs
+dist/
+build/
+
+# Local Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Multer local storage uploads (ignore uploaded case documents)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs and system generated folders
+.system_generated/
+*.log
+.gemini/
+.agents/
+.system/
+.logs/
+.vscode/
+.idea/
+.DS_Store
+
+# IDE and cache files
+frontend/.vite/
+frontend/dist/
+backend/node_modules/
+frontend/node_modules/
