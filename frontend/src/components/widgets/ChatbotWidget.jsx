@@ -5,8 +5,9 @@ import { MessageSquare, X, Send, Bot, Sparkles, Loader2, ArrowRight } from 'luci
 const SUGGESTED_CHIPS = [
   "How many active cases do I have?",
   "Show my upcoming hearings",
-  "Who are the firm's clients?",
-  "List our firm lawyers"
+  "Draft a Mutual NDA",
+  "Draft a Cease & Desist Letter",
+  "Calculate 30 days from today"
 ];
 
 const ChatbotWidget = () => {
@@ -15,7 +16,7 @@ const ChatbotWidget = () => {
     {
       id: 'welcome',
       sender: 'bot',
-      text: "Hello! I am your **Coderlly Manage AI Assistant**. Ask me anything about cases, upcoming hearings, clients, or attorneys.",
+      text: "Hello! I am your **Coderlly Manage AI Assistant**. I can draft legal contracts (NDAs, Retainers, Cease & Desist letters), calculate filing deadlines, search case details, or query database records.",
       timestamp: new Date()
     }
   ]);
